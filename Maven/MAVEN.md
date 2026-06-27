@@ -1,6 +1,6 @@
 <h1>MAVEN</h1><br>
 Maven is a build tool.<br>
-<h2>Understanding Java Applications: </h2><br>
+<h2>Understanding Java Applications: </h2>
 Java source code is compiled into byte code (".class" file).<br>
 To execute any testcases available, we run them through JUnit5. <br>
 To deploy this source code as a Java application, the source code is packaged into .jar/.war build files.<br>
@@ -10,11 +10,11 @@ Maven is a tool that automates this build process, before deploying.<br>
 
 If there are any libraries or frameworks being used in the application, the jar or war files do not have them defined. To do this, you might have to install the jar or war files from the browser of those libraries and integrate them into the IDE's build process. This means, you have to run the testcases again manually. These libraries, frameworks or modules the application is dependent on, are called dependencies.<br>
 <br>
-<h2>What does Maven do?</h2><br>
+<h2>What does Maven do?</h2>
 1. It creates the standard project folder structure.<br>
 2. It downloads and manages dependencies automatically.<br>
 3. Executes unit testcases using testing frameworks like JUnit5.<br>
-<h2>Creating a new Maven Project:</h2><br>
+<h2>Creating a new Maven Project:</h2>
 Command: mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5 -DgroupId=com.mycompany.app -DartifactId=my-new-project<br>
 
 1. mvn: invokes Maven command line.<br>
