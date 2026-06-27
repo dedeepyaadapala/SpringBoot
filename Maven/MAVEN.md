@@ -19,12 +19,25 @@ Command: mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -
 
 1. mvn: invokes Maven command line.<br>
 2. -D: define command. <br>
-3. archetype:generate : Generates a template that needs to be created by Maven.<br>
-4. -DarchetypeGroupId=org.apache.maven.archetypes : Company or organization under which the project is being created.<br>
-5. -DarchetypeArtifactId=maven-archetype-quickstart : It specifies the project name. A standalone project.<br>
-6. -DarchetypeVersion=1.5 : The version of the project that's being used.<br>
-7. -DgroupId=com.mycompany.app : Project's group ID (more like the team that's handling it currently).<br>
-8. -DartifactId=my-new-project : Project folder. Jar or war files are created under this name.<br>
-9. -DinteractiveMode = false indicates that there is no need of sending any parameters and true indicates that you need to pass parameters when you run the project.<br>
-
+3. archetype:generate : Generates a template that needs to be created by Maven. For example: maven-archetype-quickstart creates a standalone java application and maven-archetype-webapp creates a web application.<br>
+4. version=1.5 : The version of the project that's being used.<br>
+5. groupId=com.mycompany.app : Company or Organization name. It usually follows package naming syntax, using reverse domain name convention. Example: com.tcs<br>
+6. artifactId=my-new-project : Project folder. Jar or war files are created under this name.<br>
+7. interactiveMode = false indicates that there is no need of sending any parameters and true indicates that you need to pass parameters when you run the project.<br>
+8. packagingType = jar: Specified if the project has to be packaged into jar file or war file. It packages into jar file by default if not specified.<br>
 groupId vs artifactId : group ID says who's doing it and artifact ID says what it is doing.<br>
+After running the command, a new Maven project is created and in the project, there is a file called pom.xml and a folder src. This file is how the project communicates with Maven. The tasks to be done by Maven are all specified in pom.xml.<br>
+The src folder is where the source code of the application lies, the main and the testcases are defined, in the test.<br>
+<h2>Important Terms:</h2>
+<b>Maven Dependencies: </b>Libraries or external modules needed for project development like spring,hibernate,junit,kafka,redis,etc...<br>
+<b>Maven Goals: </b>It is used to perform specific steps in Maven build lifecycle. For example: clean, compile, test, package, deploy.<br>
+<b>Maven Repositories: </b>Storage location for Maven dependencies. It specifies where the dowloaded dependencies should be stored. There are 3 types of repositories: Central, remote and local. <br>
+<h2>Maven Goals:</h2>
+Syntax: mvn &lt;goal&gt;<br>
+<b>compile: </b>On compiling the project, along with the src folder and pom.xml, we also have a new default output directory called target. All the outputs like the class files, test classes, jar or war files and many more are stored in target folder.<br>
+<b>clean:</b> On using mvn clean command, the target folder is deleted i.e., the compiled files.<br>
+Whenever a change is made to pom.xml, clean the target file and  compile the project again. If the target folder is not cleaned, a build error arises.<br>
+<b>test: </b>On running test command, the project is both run adn tested.<br>
+<b>package: </b>On running package command, the project is compiled, tested and packaged into a jar file.<br>
+<b>clean package: </b>cleans the existing package and recompiles, executes testcases and packages it again.<br>
+To package the project into jar or war file, it can be specified in packaging tag of pom.xml.<br>
