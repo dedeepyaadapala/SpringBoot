@@ -58,7 +58,7 @@ There are 3 types of Maven Repositories. They are:<br>
 Dependencies are configured in pom.xml. When an application is being used, pom.xml checks for the dependency files in the local repository. If not found, it checks for the files in Central repository of Maven (repo.maven.apache.org) as jar/war files. This file is now added to the local repository and from there to the Maven application. <br>
 Remote repository is a private repository maintained by an organization handling it's internal jar/war files. <br>
 To add files from remote repo to the Maven application, they are first added to the local repo and then the application. <br>
-![The flow of how dependencies are downloaded into a Maven Application](MavenRepositories.png)
+<img src="MavenRepositories.png" alt="The flow of how dependencies are downloaded into a Maven Application">
 Address of dependencies in local repository is: .m2/repository. All the dependencies are installed in this file. <br>
 Note that mvnrepository.com is not a central repository. It is just a search engine that finds the JVM dependencies. <br>
 packaging, name, url, modelVersion, groupId, artifactId and version of the project all together are called maven coordinates. <br>
@@ -72,7 +72,7 @@ Maven has 3 built-in lifecycles. They are:<br>
 1. Default (Main lifecycle to build an application)<br>
 2. Clean (cleaning the target or directory) <br>
 3. Site (Used to generate documentation) <br>
-![The "default" lifecycle](MavenBuildLifecycle.png)
+<img src="MavenBuildLifecycle.png" alt="The default lifecycle">
 <b>Validate: </b>Checks if pom.xml exists and maven coordinates are specified. <br>
 <b>Compile, Test and Package </b>are the same as discussed in Maven goals.<br>
 <b>Verify: </b> In the test phase, we only check for unit testcases. In verify, we can also perform Integration testing. This happens after a jar/war file is generated. It's a post-build process.<br>
