@@ -1,4 +1,4 @@
-<h1>MAVEN</h1><br>
+<h1>MAVEN</h1>
 Maven is a build tool.<br>
 <h2>Understanding Java Applications: </h2>
 Java source code is compiled into byte code (".class" file).<br>
@@ -9,7 +9,6 @@ Building is the process of translating human readable source code into a package
 Maven is a tool that automates this build process, before deploying.<br>
 
 If there are any libraries or frameworks being used in the application, the jar or war files do not have them defined. To do this, you might have to install the jar or war files from the browser of those libraries and integrate them into the IDE's build process. This means, you have to run the testcases again manually. These libraries, frameworks or modules the application is dependent on, are called dependencies.<br>
-<br>
 <h2>What does Maven do?</h2>
 1. It creates the standard project folder structure.<br>
 2. It downloads and manages dependencies automatically.<br>
@@ -41,3 +40,24 @@ Whenever a change is made to pom.xml, clean the target file and  compile the pro
 <b>package: </b>On running package command, the project is compiled, tested and packaged into a jar file.<br>
 <b>clean package: </b>cleans the existing package and recompiles, executes testcases and packages it again.<br>
 To package the project into jar or war file, it can be specified in packaging tag of pom.xml.<br>
+<h2>Maven Dependencies:</h2>
+External libraries or modules that the project needs in order to compile and run properly.
+Example: spring-core, junit, hibernate, etc...<br>
+Maven dependencies can be found on mvnrepository.com.<br>
+These dependencies are added into the XML file as:
+&lt;dependency&gt;<br>
+    &lt;groupId&gt;  &lt;/groupId&gt;<br>
+    &lt;artifactId&gt;  &lt;.artifactId&gt;<br>
+    &lt;version&gt;  &lt;/version&gt;<br>
+&lt;/dependency&gt;<br>
+<h2>Maven Repositories: </h2>
+There are 3 types of Maven Repositories. They are:<br>
+1. Central Repository (Offlicial online repo) <br>
+2. Local Repository (On local machine) <br>
+3. Remote repository (Company or third party server) <br>
+Dependencies are configured in pom.xml. When an application is being used, pom.xml checks for the dependency files in the local repository. If not found, it checks for the files in Central repository of Maven (repo.maven.apache.org) as jar/war files. This file is now added to the local repository and from there to the Maven application. <br>
+Remote repository is a private repository maintained by an organization handling it's internal jar/war files. <br>
+To add files from remote repo to the Maven application, they are first added to the local repo and then the application. <br>
+Address of dependencies in local repository is: .m2/repository. All the dependencies are installed in this file. <br>
+Note that mvnrepository.com is not a central repository. It is just a search engine that finds the JVM dependencies. <br>
+packaging, name, url, modelVersion, groupId, artifactId and version of the project all together are called maven coordinates. <br>
