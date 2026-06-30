@@ -8,4 +8,6 @@
 <li>Maven Goals</li>
 <li>Maven Dependencies</li>
 <li>Maven Repositories</li>
+<li>Effective POM</li>
+<li>Maven Build Lifecycle:</li>
 </ul>

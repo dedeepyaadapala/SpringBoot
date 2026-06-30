@@ -47,7 +47,7 @@ Maven dependencies can be found on mvnrepository.com.<br>
 These dependencies are added into the XML file as:
 &lt;dependency&gt;<br>
     &lt;groupId&gt;  &lt;/groupId&gt;<br>
-    &lt;artifactId&gt;  &lt;.artifactId&gt;<br>
+    &lt;artifactId&gt;  &lt;/artifactId&gt;<br>
     &lt;version&gt;  &lt;/version&gt;<br>
 &lt;/dependency&gt;<br>
 <h2>Maven Repositories: </h2>
@@ -58,6 +58,24 @@ There are 3 types of Maven Repositories. They are:<br>
 Dependencies are configured in pom.xml. When an application is being used, pom.xml checks for the dependency files in the local repository. If not found, it checks for the files in Central repository of Maven (repo.maven.apache.org) as jar/war files. This file is now added to the local repository and from there to the Maven application. <br>
 Remote repository is a private repository maintained by an organization handling it's internal jar/war files. <br>
 To add files from remote repo to the Maven application, they are first added to the local repo and then the application. <br>
+![The flow of how dependencies are downloaded into a Maven Application](MavenRepositories.png)
 Address of dependencies in local repository is: .m2/repository. All the dependencies are installed in this file. <br>
 Note that mvnrepository.com is not a central repository. It is just a search engine that finds the JVM dependencies. <br>
 packaging, name, url, modelVersion, groupId, artifactId and version of the project all together are called maven coordinates. <br>
+<h2>Effective POM:</h2>
+Effective POM is the parent POM, where the default dependencies are specified as an XML file.<br>
+When a maven application is compiled, it doesn't run pom.xml. It runs the effective pom file where the pre-defined dependencies are specified and also combines pom.xml to effective pom. This way, pom.xml is a way to communicate with the maven application.<br>
+Effective POM should never be modified, because it is regenerated everytime. Everytime you compile the application, effective pom is regenerated and any manual changes are always temporary. <br>
+To explain it as an analogy, when we make changes in code, we do it in .java file and not .class file. Similarly, effective pom is like a generated class file and pom.xml a code file. <br>
+<h2>Maven Build Lifecycle:</h2>
+Maven has 3 built-in lifecycles. They are:<br>
+1. Default (Main lifecycle to build an application)<br>
+2. Clean (cleaning the target or directory) <br>
+3. Site (Used to generate documentation) <br>
+![The "default" lifecycle](MavenBuildLifecycle.png)
+<b>Validate: </b>Checks if pom.xml exists and maven coordinates are specified. <br>
+<b>Compile, Test and Package </b>are the same as discussed in Maven goals.<br>
+<b>Verify: </b> In the test phase, we only check for unit testcases. In verify, we can also perform Integration testing. This happens after a jar/war file is generated. It's a post-build process.<br>
+<b>Install: </b> On running the install command, every step before it, is run internally. And the jar/war file is added into the local repository.<br>
+<b>Deploy: </b> On deploying, the jar files are added into the remote repository. <br>
+If Springboot is used, the application is deployed into an embedded tomcat server after jar/war files are generated. <br>
