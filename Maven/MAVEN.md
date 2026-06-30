@@ -79,3 +79,5 @@ Maven has 3 built-in lifecycles. They are:<br>
 <b>Install: </b> On running the install command, every step before it, is run internally. And the jar/war file is added into the local repository.<br>
 <b>Deploy: </b> On deploying, the jar files are added into the remote repository. <br>
 If Springboot is used, the application is deployed into an embedded tomcat server after jar/war files are generated. <br>
+A folder in src/main, called the resources, consists of all the supporting resources and configurations are stored in this. In the resources folder, we have a file under the name, application.properties or applications.yaml, where all configurations for the application are written.<br>
+You can also use Gradle as an alternative build tool for Java.<br>
